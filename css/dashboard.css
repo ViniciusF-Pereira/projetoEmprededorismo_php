@@ -1,0 +1,36 @@
+    .row_EnderecosMenu {
+        border: 1px solid black;
+        float: left;
+        width: 25.33%;
+        margin: 2%;
+        padding: 2%;
+        font-size: 20px;
+    }
+    
+    .enderecos:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+    
+    .Div_adicionarEndereco {
+        margin-top: 20%;
+        border: 1px solid black;
+        width: 60.33%;
+        margin: 2%;
+        padding: 1%;
+        font-size: 20px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    /*  inputs */
+    
+    .inputs_endereco {
+        width: 150%;
+        align-self: auto;
+    }
+    
+    .input_AdicionarEndereco {
+        margin-top: 15%;
+    }
