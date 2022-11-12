@@ -1,0 +1,508 @@
+:root {
+  --bgImagePrimario: linear-gradient(to bottom, black, #151515);
+  --corPrimaria: #faff04;
+}
+
+* {
+  font-family: Inter;
+  max-width: 100%;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #fafafa;
+}
+
+/*  Navbar  */
+nav {
+  width: 100vw;
+  height: 12%;
+
+  background-image: linear-gradient(to bottom, black, #151515);
+  color: white;
+
+  position: sticky;
+  top: 0;
+
+  display: flex !important;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+
+  z-index: 1000;
+}
+
+.navBtn {
+  border: none;
+  background: none;
+  color: white;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.navBtn:hover {
+  color: var(--corPrimaria);
+}
+
+#hamburguerBtn {
+  display: none;
+  position: absolute;
+  top: 50%;
+  right: 5%;
+  transform: translateY(-50%);
+
+  border: none;
+  background: none;
+  color: white;
+  font-size: 1.4rem;
+  cursor: pointer;
+  transition: 0.6s;
+}
+
+nav .navContainer {
+  width: 92%;
+  height: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logoArea {
+  height: 100%;
+  width: 15%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.logoArea img {
+  height: 90px;
+  width: 90px;
+}
+
+.companyName {
+  font-size: 1.5rem;
+  color: var(--corPrimaria);
+  font-weight: bold;
+
+  position: absolute;
+  margin-top: 60px;
+}
+
+.navMenu {
+  width: 85%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+
+  white-space: nowrap;
+}
+
+.navItems {
+  margin: 0;
+  padding: 0;
+
+  width: 50%;
+
+  display: flex;
+  justify-content: center;
+}
+.navItems > li {
+  margin-right: 18px;
+}
+
+.navItems i {
+  font-size: 0.8rem;
+  margin-left: 2px;
+}
+
+.navItems li,
+.navItems a {
+  text-decoration: none;
+  list-style-type: none;
+  color: white;
+  transition: 0.4s;
+}
+
+.navItems a:hover {
+  text-decoration: none;
+  color: var(--corPrimaria);
+}
+
+.navItems2 {
+  width: 10%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.nav2ItemNome {
+  display: none;
+}
+
+/* Carrinho */
+
+.botao__carinho {
+  color: white;
+  background-color: #181818;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: -385px;
+  padding: 20px;
+  width: 340px;
+  z-index: 1001;
+  transition: 0.7s;
+}
+
+.botao__carinho i {
+  font-size: 1.3rem;
+}
+
+.botao__carinho.carrinhoAberto {
+  right: 0;
+}
+
+#fecharCarrinhoBtn {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+
+  color: #cecece;
+  text-align: center;
+  border: none;
+  border-radius: 50%;
+  background: none;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.limparCarrinhoBtn {
+  padding: 0px;
+  border-radius: 40px;
+  width: 80px;
+  margin-bottom: 30px;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+/* Section */
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  background-color: #00000065;
+  transition: 0.5s;
+  z-index: 1;
+}
+
+.quemSomos {
+  position: relative;
+  width: 100vw;
+  height: 35vh;
+
+  background-image: url(../../images/sobreBg.jpg);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000000;
+  box-shadow: 0px 1px 2px 1px black;
+}
+
+.quemSomos > .titulo {
+  position: absolute;
+  top: 35%;
+  color: white;
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: 1px 1px 5px #000000;
+  z-index: 100;
+}
+
+.textoContainer {
+  padding: 50px;
+}
+
+.textoContainer h2 {
+  font-size: 1.4rem;
+  color: #e6482c;
+  font-weight: bold;
+}
+
+.textoContainer h3 {
+  text-decoration: underline;
+}
+
+.textoContainer p {
+  text-indent: 15px;
+  font-size: 1.05rem;
+}
+
+/*  Footer  */
+footer {
+  padding: 10px;
+  background-image: linear-gradient(to bottom, black, #0c0c0c);
+  color: #686868;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+}
+
+footer .cadastroEmail {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+footer form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.cadastroEmail p {
+  font-size: 1.3rem;
+  margin-top: 0;
+  margin-bottom: 0;
+  color: white;
+  font-weight: bold;
+}
+
+.cadastroEmail input[type="email"] {
+  margin: 0 20px;
+  font-size: 1.3rem;
+  height: 40px;
+}
+
+.cadastroEmail button {
+  padding: 5px 10px;
+  color: white;
+  height: 40px;
+  width: 150px;
+  font-size: 1.1rem;
+  border: 2px solid white;
+  font-weight: bold;
+  background: none;
+  cursor: pointer;
+}
+
+footer .creditos {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+
+  margin-top: 0px;
+  margin-bottom: 30px;
+}
+
+.creditos h5 {
+  font-size: 1.2rem;
+  margin: 15px 0;
+}
+
+.creditos > * {
+  display: flex;
+  flex-direction: column;
+}
+.creditos a {
+  color: #f1f1f1;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.creditos a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+@media screen and (width < 630px) {
+  header p {
+    font-size: 13px;
+  }
+
+  #hamburguerBtn,
+  .nav2ItemNome {
+    display: inline-block;
+  }
+
+  #hamburguerBtn.ativo {
+    transform: rotate(90deg);
+    top: 35%;
+    color: var(--corPrimaria);
+  }
+
+  .navMenu {
+    position: absolute;
+    top: 87%;
+    right: 0;
+    width: 100%;
+    padding: 10px 20px 20px 10px;
+    opacity: 0;
+    pointer-events: none;
+    background-color: rgba(0, 0, 0, 0.792);
+    transition: 0.6s;
+  }
+
+  .navMenu.mostrar {
+    top: 100%;
+    opacity: 1;
+    pointer-events: all;
+    border-top: 2px solid var(--corPrimaria);
+    border-bottom: 2px solid var(--corPrimaria);
+  }
+
+  .navItems2 {
+    margin-top: 10px;
+  }
+
+  .navItems,
+  .navItems2 {
+    width: fit-content;
+  }
+
+  .navItems a,
+  .navItems button {
+    padding: 5px;
+  }
+
+  .navMenu,
+  .navItems,
+  .navItems2 {
+    height: fit-content;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .botao__carinho {
+    width: 240px;
+    border-left: 2px solid var(--corPrimaria);
+  }
+
+  footer .cadastroEmail {
+    flex-direction: column;
+  }
+
+  .cadastroEmail p {
+    margin-bottom: 15px;
+  }
+}
+
+@media screen and (width < 460px) {
+  .navItems,
+  .navItems2 {
+    align-items: flex-start;
+  }
+
+  .navItems2 button {
+    padding-left: 0;
+  }
+
+  .quemSomos {
+    height: 25vh;
+  }
+
+  footer form {
+    flex-direction: column;
+    width: 100vw;
+  }
+
+  footer form * {
+    margin-top: 10px;
+    width: 100% !important;
+  }
+
+  footer .creditos a {
+    margin-bottom: 12px;
+    width: 30vw;
+  }
+}
+
+@media screen and (width < 600px) {
+  #hamburguerBtn,
+  .nav2ItemNome {
+    display: inline-block;
+  }
+
+  #hamburguerBtn.ativo {
+    transform: rotate(90deg);
+    top: 35%;
+    color: var(--corPrimaria);
+  }
+
+  .navMenu {
+    position: absolute;
+    top: 87%;
+    right: 0;
+    width: 100%;
+    padding: 10px 20px 20px 10px;
+    opacity: 0;
+    pointer-events: none;
+    /* background-image: linear-gradient(to bottom, #151515, black); */
+    background-color: #000000;
+    background-color: rgba(0, 0, 0, 0.792);
+    transition: 0.6s;
+  }
+
+  .navMenu.mostrar {
+    top: 100%;
+    opacity: 1;
+    pointer-events: all;
+    border-top: 2px solid var(--corPrimaria);
+    border-bottom: 2px solid var(--corPrimaria);
+  }
+
+  .navItems2 {
+    margin-top: 10px;
+  }
+
+  .navItems,
+  .navItems2 {
+    width: fit-content;
+  }
+
+  .navItems a,
+  .navItems button {
+    padding: 5px;
+  }
+
+  .navMenu,
+  .navItems,
+  .navItems2 {
+    height: fit-content;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .botao__carinho {
+    width: 240px;
+    border-left: 2px solid var(--corPrimaria);
+  }
+}

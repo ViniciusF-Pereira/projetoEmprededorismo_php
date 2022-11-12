@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="./produtos.css" />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Inter&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+
+    <title>Produtos</title>
+    <link
+      rel="shortcut icon"
+      href="../../images/kisspng_gray_wolf_logo_mascot_clip_art_wolf_5ab4467dd78141_1.png"
+    />
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <div class="navContainer">
+          <!-- Mobile Hamburguer -->
+          <button id="hamburguerBtn" class="navBtn">
+            <i class="fa fa-bars"></i>
+          </button>
+
+          <a href="/" class="logoArea">
+            <img
+              src="../../images/kisspng_gray_wolf_logo_mascot_clip_art_wolf_5ab4467dd78141_1.png"
+              alt="Logo"
+            />
+            <span class="companyName">Wolf-Fit</span>
+          </a>
+
+          <div class="navMenu">
+            <ul class="navItems">
+              <li>
+                <a href="/"> Home </a>
+              </li>
+
+              <li>
+                <a href="/components/contato/contato.html"> Contato </a>
+              </li>
+
+              <li>
+                <a href="/components/sobre/sobre.html"> Sobre </a>
+              </li>
+            </ul>
+
+            <div class="navItems2">
+              <button class="navBtn">
+                <i class="fa fa-user"></i>
+                <span class="nav2ItemNome">Login</span>
+              </button>
+              <button id="abrirCarrinhoBtn" class="navBtn">
+                <i class="fa fa-cart-shopping"></i>
+                <span class="nav2ItemNome">Carrinho</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <div id="botao__carinho" class="botao__carinho">
+        <h3>Carrinho <i class="fa fa-cart-shopping"></i></h3>
+        <button
+          type="button"
+          class="limparCarrinhoBtn"
+          onclick=" localStorage.clear(); location.reload();"
+        >
+          Limpar
+        </button>
+
+        <div id="botao__carinho___tabela">
+          <div>Total: <span id="total"></span></div>
+
+          <div id="itens"></div>
+        </div>
+
+        <button id="fecharCarrinhoBtn"><i class="fa fa-close"></i></button>
+      </div>
+    </header>
+
+    <section>
+      <div class="categorias container">
+        <div class="categoria">
+          <img src="../../images/suplementos.webp" alt="" />
+          <p>Suplementos</p>
+        </div>
+        <div class="categoria">
+          <img src="../../images/Pesos-academia-pretos-Png.png" alt="" />
+          <a href="../equipamentos/equipamentos.html">
+            <p>Equipamentos</p>
+          </a>
+        </div>
+        <div class="categoria">
+          <img src="../../images/acessorios.png" class="acessorios" alt="" />
+          <p>Acessórios</p>
+        </div>
+      </div>
+
+      <h3>Mais pesquisados</h3>
+
+      <div class="produtos container">
+        <div class="produto">
+          <img src="../../images/whey.png" alt="" />
+          <p>Whey gold standard</p>
+          <p class="preço">R$79,99</p>
+        </div>
+        <div class="produto">
+          <img src="../../images/whey.png" alt="" />
+          <p>Whey gold standard</p>
+          <p class="preço">R$79,99</p>
+        </div>
+        <div class="produto">
+          <img src="../../images/whey.png" alt="" />
+          <p>Whey gold standard</p>
+          <p class="preço">R$79,99</p>
+        </div>
+        <div class="produto">
+          <img src="../../images/whey.png" alt="" />
+          <p>Whey gold standard</p>
+          <p class="preço">R$79,99</p>
+        </div>
+      </div>
+    </section>
+  </body>
+
+  <script src="../../JS/hamburguerBtn.js"></script>
+  <script src="../../JS/carrinho.js"></script>
+</html>

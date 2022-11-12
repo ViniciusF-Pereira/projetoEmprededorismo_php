@@ -1,0 +1,373 @@
+:root {
+  --bgImagePrimario: linear-gradient(to bottom, black, #151515);
+  --corPrimaria: #faff04;
+  --tamanhoCarrosel: 456px;
+}
+
+* {
+  font-family: Inter;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  background-color: white;
+}
+
+header {
+  width: 100%;
+  height: 12%;
+
+  background-image: radial-gradient(rgb(28, 27, 27), black, black);
+
+  color: white;
+
+  display: flex;
+  justify-content: center;
+}
+
+nav {
+  width: 100vw;
+  height: 100%;
+
+  background-image: linear-gradient(to bottom, black, #151515);
+  color: white;
+
+  position: sticky;
+  top: 0;
+
+  display: flex !important;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+
+  z-index: 1000;
+}
+
+.navBtn {
+  border: none;
+  background: none;
+  color: white;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.navBtn:hover {
+  color: var(--corPrimaria);
+}
+
+#hamburguerBtn {
+  display: none;
+  position: absolute;
+  top: 50%;
+  right: 5%;
+  transform: translateY(-50%);
+
+  border: none;
+  background: none;
+  color: white;
+  font-size: 1.4rem;
+  cursor: pointer;
+  transition: 0.6s;
+}
+
+nav .navContainer {
+  width: 92%;
+  height: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logoArea {
+  height: 100%;
+  width: 15%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.logoArea img {
+  height: 90px;
+  width: 90px;
+}
+
+.companyName {
+  font-size: 1.5rem;
+  color: var(--corPrimaria);
+  font-weight: bold;
+
+  position: absolute;
+  margin-top: 60px;
+}
+
+.navMenu {
+  width: 85%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+
+  white-space: nowrap;
+}
+
+.navItems {
+  margin: 0;
+  padding: 0;
+
+  width: 50%;
+
+  display: flex;
+  justify-content: center;
+}
+.navItems > li {
+  margin-right: 18px;
+}
+
+.navItems i {
+  font-size: 0.8rem;
+  margin-left: 2px;
+}
+
+.navItems li,
+.navItems a {
+  text-decoration: none;
+  list-style-type: none;
+  color: white;
+  transition: 0.4s;
+}
+
+.navItems a:hover {
+  text-decoration: none;
+  color: var(--corPrimaria);
+}
+
+.navItems2 {
+  width: 10%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.nav2ItemNome {
+  display: none;
+}
+
+/* Carrinho */
+
+.botao__carinho {
+  color: white;
+  background-color: #181818;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: -385px;
+  padding: 20px;
+  width: 340px;
+  z-index: 1001;
+  transition: 0.7s;
+}
+
+.botao__carinho i {
+  font-size: 1.3rem;
+}
+
+.botao__carinho.carrinhoAberto {
+  right: 0;
+}
+
+#fecharCarrinhoBtn {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+
+  color: #cecece;
+  text-align: center;
+  border: none;
+  border-radius: 50%;
+  background: none;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.limparCarrinhoBtn {
+  padding: 0px;
+  border-radius: 40px;
+  width: 80px;
+  margin-bottom: 30px;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+/* Section */
+
+section {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.produtos {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  margin: 40px 0;
+}
+
+.produto {
+  height: 250px;
+  width: 45%;
+
+  margin: 20px 0;
+
+  background-color: rgba(190, 185, 185, 0.296);
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.produto img {
+  height: 120px;
+  width: 120px;
+
+  margin: 0;
+}
+
+.produto.rightInside {
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+.produto.leftInside {
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+}
+
+.info h3 {
+  margin: 0 0 10px 0;
+  padding: 0;
+
+  font-size: 40px;
+  font-weight: 600;
+}
+
+.info span {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.info p {
+  font-weight: 900;
+
+  color: #d404d4;
+}
+
+.info button {
+  width: 160px;
+  height: 40px;
+
+  border: 2px solid rgba(0, 0, 0, 0.792);
+  border-radius: 30px;
+
+  margin-top: 3px;
+
+  font-weight: bold;
+  font-size: 1.1rem;
+
+  background-color: #f8fffa;
+  color: #d404d4;
+
+  cursor: pointer;
+}
+
+.right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.left {
+  display: flex;
+  justify-content: flex-start;
+}
+
+@media screen and (width < 600px) {
+  #hamburguerBtn,
+  .nav2ItemNome {
+    display: inline-block;
+  }
+
+  #hamburguerBtn.ativo {
+    transform: rotate(90deg);
+    top: 35%;
+    color: var(--corPrimaria);
+  }
+
+  .navMenu {
+    position: absolute;
+    top: 87%;
+    right: 0;
+    width: 100%;
+    padding: 10px 20px 20px 10px;
+    opacity: 0;
+    pointer-events: none;
+    background-color: rgba(0, 0, 0, 0.792);
+    transition: 0.6s;
+  }
+
+  .navMenu.mostrar {
+    top: 100%;
+    opacity: 1;
+    pointer-events: all;
+    border-top: 2px solid var(--corPrimaria);
+    border-bottom: 2px solid var(--corPrimaria);
+  }
+
+  .navItems2 {
+    margin-top: 10px;
+  }
+  .navItems,
+  .navItems2 {
+    width: fit-content;
+  }
+
+  .navItems a,
+  .navItems button {
+    padding: 5px;
+  }
+
+  .navMenu,
+  .navItems,
+  .navItems2 {
+    height: fit-content;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .botao__carinho {
+    width: 240px;
+    border-left: 2px solid var(--corPrimaria);
+  }
+}
