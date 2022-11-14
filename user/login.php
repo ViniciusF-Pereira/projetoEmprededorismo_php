@@ -5,12 +5,12 @@
 session_start();
 ob_start();
 
-if ($_SESSION['nome'] != true or $_SESSION['nome'] == null){
-$__usuario_conectado = $_SESSION['nome'];
+if ($_SESSION['id'] != true or $_SESSION['id'] == null){
+$__usuario_conectado = $_SESSION['id'];
 }
 else {
-    $_SESSION['nome'] = "";
-    $__usuario_conectado = $_SESSION['nome'];
+    $_SESSION['id'] = "0";
+    $__usuario_conectado = $_SESSION['id'];
 }
 
 include_once '../php/conexao.php';
@@ -20,87 +20,6 @@ include_once '../php/conexao.php';
 ?>
 
 
-        <?php
-        // exemplo criptografar a senha
-
-        // echo password_hash(123456, PASSWORD_DEFAULT)
-        
-        ?>
-
-        <?php
-
-        $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
-
-        if(!empty($dados["SendCadastro"])){
-
-               echo "<pre>";
-               var_dump($dados);
-               echo "</pre>";
-               
-               header("Location: cadastro.php");
-        }
-
-        if(!empty($dados["SendLogin"])){
-
-                echo "<pre>";
-                var_dump($dados);
-                echo "</pre>";
-        
-
-        
-        
-$query_usuario ="SELECT id, nome, cpf, usuario, senha_usuario, id_number
-FROM usuarios 
-WHERE usuario =:usuario
-LIMIT 1";        
-
-$result_usuario = $conn->prepare($query_usuario);
-$result_usuario -> bindParam(':usuario', $dados['usuario'], PDO::PARAM_STR);         
-
-        $result_usuario -> execute();
-
-        if(($result_usuario) AND ($result_usuario->rowCount() != 0)){
-        $row_usuario = $result_usuario->fetch(PDO::FETCH_ASSOC);
-              
-        //  echo "<pre>";
-        //  var_dump($row_usuario);
-        //  echo "</pre>";
-
-
-            if(password_verify($dados["senha_usuario"], $row_usuario["senha_usuario"])){
-
-                // echo "acessado";
-
-
-                
-                $_SESSION['id_number'] = $row_usuario['id_number'];
-                $_SESSION['id'] = $row_usuario['id'];
-                $_SESSION['nome'] = $row_usuario['nome'];
-              
-                
-           
-                header("Location: ../index.php");
-
-            }
-            else {
-                   $_SESSION['msg']= "<p style='color: #ff0000'> Erro; Senha inválida! </p>";
-            }
-            
-       
-        }
-        else {
-            $_SESSION['msg']= "<p style='color: #ff0000'> Erro; Usuário ou Senha inválida! </p>";
-        }
-
-        if(isset($_SESSION['msg'])){
-            echo $_SESSION['msg'];
-            unset ($_SESSION['msg']);
-        }
-        
-    }
-        
-
-        ?>
 <!-- ------------------------------------------------------------------------------------------------- HTML-->
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -158,6 +77,7 @@ $result_usuario -> bindParam(':usuario', $dados['usuario'], PDO::PARAM_STR);
 
     <title>WOLF FIT</title>
 
+    <link rel="shortcut icon" href="../images/kisspng_gray_wolf_logo_mascot_clip_art_wolf_5ab4467dd78141_1.png" />
 
 
 </head>
@@ -174,23 +94,77 @@ $result_usuario -> bindParam(':usuario', $dados['usuario'], PDO::PARAM_STR);
 
 
 
+   
+    <!-- Barra de navegação ------------------------------------------------------  Barra de navegação    -->
     <nav>
-        <div class=logodiv>
-            <div class="logoImg "></div>
-            <span class="logoNome ">Wolf-Fit</span>
-        </div>
+    <div class="navContainer">
+        <!-- Mobile Hamburguer -->
+        <button id="hamburguerBtn" class="navBtn">
+          <i class="fa fa-bars"></i>
+        </button>
 
-        <div class=menuSection>
-            <span class="menuItem"><a href="../index.php">Home</a></span>
-            <span class="menuItem"><a href="../products/produtos.php">Produtos</a></span>
-            <span class="menuItem">Sobre</span>
-            <span class="menuItem">Contato</span>
-            <span class="menuItem"><a href="login.php">Login</a></span>
-          
-            
+        <a href="../index.php" class="logoArea">
+          <img
+            src="../images/kisspng_gray_wolf_logo_mascot_clip_art_wolf_5ab4467dd78141_1.png"
+            alt="Logo"
+         
+          />
+          <span class="companyName">Wolf-Fit</span>
+        </a>
+
+        <div class="navMenu">
+          <ul class="navItems">
+            <li>
+              <div id="produtosListaDropDown">
+                <a> <span>Destaques</span> <i class="fa fa-caret-down"></i> </a>
+                <ul id="produtosListaDropDownUl">
+                  <li id="promocaoBtn">Promoções</li>
+                  <li id="maisVendidosBtn">Mais vendidos</li>
+                </ul>
+              </div>
+            </li>
+
+            <li>
+                <a href="../index.php">Home</a>
+            </li>
+            <li>
+              <a href="../products/produtos.php">Produtos</a>
+            </li>
+            <li>
+                <a href="../contato/contato.php">Contato</a>
+            </li>
+
+            <li>
+                <a href="../sobre/sobre.php">Sobre</a>
+            </li>
+          </ul>
+
+          <div class="navItems2">
+            <button class="navBtn">
+            <?php
+                    if( $_SESSION['id'] != 0 ||  $_SESSION['id']!= ""){
+                
+                  
+    
+                      echo  '<a href="login.php"> <i class="fa fa-user"></i></a></span>';
+                    }
+                     else {
+        
+                      echo  '<span class="menuItem"><a href="user/dashboard.php">Configurações</a></span>';
+        
+                      echo    '<a href="sair.php">SAIR</a>';
+                    
+                  }
+            ?>
+            </button>
+            <button id="abrirCarrinhoBtn" class="navBtn">
+              <i class="fa fa-cart-shopping"></i>
+              <span class="nav2ItemNome">Carrinho</span>
+            </button>
+          </div>
         </div>
+      </div>
     </nav>
-
 
 
 
@@ -213,6 +187,87 @@ $result_usuario -> bindParam(':usuario', $dados['usuario'], PDO::PARAM_STR);
 
                 <br>
                 <br>
+                <?php
+        // exemplo criptografar a senha
+
+        // echo password_hash(123456, PASSWORD_DEFAULT)
+        
+        ?>
+
+        <?php
+
+        $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
+
+        if(!empty($dados["SendCadastro"])){
+
+              // echo "<pre>";
+              // var_dump($dados);
+              // echo "</pre>";
+               
+               header("Location: cadastro.php");
+        }
+
+        if(!empty($dados["SendLogin"])){
+
+              //  echo "<pre>";
+              //  var_dump($dados);
+              //  echo "</pre>";
+        
+
+        
+        
+$query_usuario ="SELECT id, nome, cpf, usuario, senha_usuario, id_number
+FROM usuarios 
+WHERE usuario =:usuario
+LIMIT 1";        
+
+$result_usuario = $conn->prepare($query_usuario);
+$result_usuario -> bindParam(':usuario', $dados['usuario'], PDO::PARAM_STR);         
+
+        $result_usuario -> execute();
+
+        if(($result_usuario) AND ($result_usuario->rowCount() != 0)){
+        $row_usuario = $result_usuario->fetch(PDO::FETCH_ASSOC);
+              
+        //  echo "<pre>";
+        //  var_dump($row_usuario);
+        //  echo "</pre>";
+
+
+            if(password_verify($dados["senha_usuario"], $row_usuario["senha_usuario"])){
+
+                // echo "acessado";
+
+
+                
+                $_SESSION['id_number'] = $row_usuario['id_number'];
+                $_SESSION['id'] = $row_usuario['id'];
+                $_SESSION['nome'] = $row_usuario['nome'];
+              
+                
+           
+                header("Location: ../index.php");
+
+            }
+            else {
+                   $_SESSION['msg']= "<p style='color: #ff0000'> Erro; Senha inválida! </p>";
+            }
+            
+       
+        }
+        else {
+            $_SESSION['msg']= "<p style='color: #ff0000'> Erro; Usuário ou Senha inválida! </p>";
+        }
+
+        if(isset($_SESSION['msg'])){
+            echo $_SESSION['msg'];
+            unset ($_SESSION['msg']);
+        }
+        
+    }
+        
+
+        ?>
 
                 <input type="submit" value="Acessar" name="SendLogin"> 
                 <input type="submit" value="Cadastrar" name="SendCadastro"  > 

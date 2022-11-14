@@ -5,13 +5,6 @@ session_start();
 ob_start();
 
 
-if ($_SESSION['nome'] != true){
-    $_SESSION['nome'] = "";
-    $__usuario_conectado = $_SESSION['nome'];
-    }
-    else {
-       $__usuario_conectado = $_SESSION['nome'];
-    }
 
 
 
@@ -136,36 +129,77 @@ $total_produtos = mysqli_num_rows($result_produto_sTotal);
     </header>
 
 
+ <!-- Barra de navegação ------------------------------------------------------  Barra de navegação    -->
+ <nav>
+    <div class="navContainer">
+        <!-- Mobile Hamburguer -->
+        <button id="hamburguerBtn" class="navBtn">
+          <i class="fa fa-bars"></i>
+        </button>
 
-    <nav>
-        <div class=logodiv>
-            <div class="logoImg "></div>
-            <span class="logoNome ">Wolf-Fit</span>
-        </div>
+        <a href="../index.php" class="logoArea">
+          <img
+            src="../images/kisspng_gray_wolf_logo_mascot_clip_art_wolf_5ab4467dd78141_1.png"
+            alt="Logo"
+         
+          />
+          <span class="companyName">Wolf-Fit</span>
+        </a>
 
-        <div class=menuSection>
-        
-            <span class="menuItem"><a href="../index.php">Home</a></span>
-            <span class="menuItem"><a href="../products/produtos.php">Produtos</a></span>
-            <span class="menuItem">Sobre</span>
-            <span class="menuItem">Contato</span>
-            <?php 
-            if($__usuario_conectado == ""){
+        <div class="navMenu">
+          <ul class="navItems">
+            <li>
+              <div id="produtosListaDropDown">
+                <a> <span>Destaques</span> <i class="fa fa-caret-down"></i> </a>
+                <ul id="produtosListaDropDownUl">
+                  <li id="promocaoBtn">Promoções</li>
+                  <li id="maisVendidosBtn">Mais vendidos</li>
+                </ul>
+              </div>
+            </li>
 
-                echo  '<span class="menuItem"><a href="../user/login.php">Login</a></span>';
+            <li>
+                <a href="../index.php">Home</a>
+            </li>
+            <li>
+              <a href="produtos.php">Produtos</a>
+            </li>
+            <li>
+                <a href="../contato/contato.php">Contato</a>
+            </li>
 
-            }
-            else{
+            <li>
+                <a href="../sobre/sobre.php">Sobre</a>
+            </li>
+          </ul>
 
-                echo  '<span class="menuItem"><a href="../user/dashboard.php">Configurações</a></span>';
+          <div class="navItems2">
+            <button class="navBtn">
+            <?php
+                        if( $_SESSION['id'] != 0 ||  $_SESSION['id']!= ""){
                 
-                echo    '<a href="../user/sair.php">SAIR</a>';
-
-            }
-            ?>
+                  
+    
+                          echo  '<a href="login.php"> <i class="fa fa-user"></i></a></span>';
+                        }
+                         else {
             
+                          echo  '<span class="menuItem"><a href="user/dashboard.php">Configurações</a></span>';
+            
+                          echo    '<a href="sair.php">SAIR</a>';
+                        
+                      }
+            ?>
+            </button>
+            <button id="abrirCarrinhoBtn" class="navBtn">
+              <i class="fa fa-cart-shopping"></i>
+              <span class="nav2ItemNome">Carrinho</span>
+            </button>
+          </div>
         </div>
+      </div>
     </nav>
+
    
 
     <!-- Produtos -->

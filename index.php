@@ -5,18 +5,31 @@ session_start();
 ob_start();
 
 
-if ($_SESSION['nome'] != true) {
-  $_SESSION['nome'] = "";
-  $__usuario_conectado = $_SESSION['nome'];
+include_once 'php/conexao.php';
+include_once 'carrinho/carinhoScript.php';
+
+
+
+
+
+if ($_SESSION['id'] != true) {
+  $_SESSION['id'] = "0";
+  $__usuario_conectado =  $_SESSION['id'];
 } else {
-  $__usuario_conectado = $_SESSION['nome'];
+  $__usuario_conectado =  $_SESSION['id'];
 }
 
-include_once 'php/conexao.php';
 
 
+echo '
 
+<input class="Section_ID" type="" name="Section_ID" placeholder="Section_ID"id="" value="" readonly>
 
+';
+
+$dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
+
+var_dump($dados)
 ?>
 
 
@@ -59,10 +72,10 @@ include_once 'php/conexao.php';
     <p class="segundoTitulo">
       Frete Grátis, vide as regras | 1ª Troca sem custo* | Entrega realizada em até 7 dias úteis</p>
     <?php
-    if ($__usuario_conectado != "") {
+    if ($__usuario_conectado != "0") {
 
 
-      echo    '<p class="primeiroTitulo ">Bem Vindo ' . $__usuario_conectado . '</p>';
+      echo    '<p class="primeiroTitulo ">Bem Vindo ' . $_SESSION['nome'] . '</p>';
     }
     ?>
   </header>
@@ -75,10 +88,11 @@ include_once 'php/conexao.php';
           <i class="fa fa-bars"></i>
         </button>
 
-        <a href="/" class="logoArea">
+        <a href="index.php" class="logoArea">
           <img
             src="./images/kisspng_gray_wolf_logo_mascot_clip_art_wolf_5ab4467dd78141_1.png"
             alt="Logo"
+         
           />
           <span class="companyName">Wolf-Fit</span>
         </a>
@@ -102,23 +116,23 @@ include_once 'php/conexao.php';
             </li>
 
             <li>
-              <a href="./sobre/sobre.html"> Sobre </a>
+              <a href="sobre/sobre.php"> Sobre </a>
             </li>
           </ul>
 
           <div class="navItems2">
             <button class="navBtn">
             <?php
-      if ($__usuario_conectado == "") {
+            if ($__usuario_conectado == "0") {
 
-        echo  '<a href="user/login.php"> <i class="fa fa-user"></i></a></span>';
-      } else {
+              echo  '<a href="user/login.php"> <i class="fa fa-user"></i></a></span>';
+            } else {
 
-        echo  '<span class="menuItem"><a href="user/dashboard.php">Configurações</a></span>';
+              echo  '<span class="menuItem"><a href="user/dashboard.php">Configurações</a></span>';
 
-        echo    '<a href="user/sair.php">SAIR</a>';
-      }
-      ?>
+              echo    '<a href="user/sair.php">SAIR</a>';
+            }
+            ?>
             </button>
             <button id="abrirCarrinhoBtn" class="navBtn">
               <i class="fa fa-cart-shopping"></i>
@@ -421,8 +435,9 @@ include_once 'php/conexao.php';
   </footer>
 
 
-
+<script src="script/carrinho.js"></script>
 
 </body>
+
 
 </html>

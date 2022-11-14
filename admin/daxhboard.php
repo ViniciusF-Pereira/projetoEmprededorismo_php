@@ -8,8 +8,15 @@ ob_start();
 
 include_once '../php/conexao.php';
 
+if( $_SESSION['id'] != 0 &&  $_SESSION['id']!= ""){
 
+    header("Location: ../index.php");
+  
+  
+  }
+  
 
+if($__usuario_conectado != 0 && $__usuario_conectado != ""){
 if ($_SESSION['nome'] != true){
     $_SESSION['nome'] = "";
     $__usuario_conectado = $_SESSION['nome'];
@@ -35,7 +42,7 @@ if((!isset($_SESSION['id'])) AND (!isset($_SESSION['nome']))){
     
 
 }
-
+}
 ?>
 
 <?php
@@ -239,23 +246,19 @@ if(!empty($dados["CadastrarEndereco"])){
             <span class="menuItem">Sobre</span>
             <span class="menuItem">Contato</span>
             <?php 
-            if($__usuario_conectado == ""){
-
-                echo  '<span class="menuItem"><a href="login.php">Login</a></span>';
-
-            }
-            else{
-
-                echo  '<span class="menuItem"><a href="../user/dashboard.php">Configurações</a></span>';
-            }
-            ?>
-            <?php 
-            if($__usuario_conectado != ""){
-
-               
-                echo    '<a href="../user/sair.php">SAIR</a>';
-
-            }
+                 if( $_SESSION['id'] != 0 ||  $_SESSION['id']!= ""){
+                
+                  
+    
+                    echo  '<a href="../user/login.php"> <i class="fa fa-user"></i></a></span>';
+                  }
+                   else {
+      
+                    echo  '<span class="menuItem"><a href="../user/dashboard.php">Configurações</a></span>';
+      
+                    echo    '<a href="../user/sair.php">SAIR</a>';
+                  
+                }
             ?>
             
             
