@@ -98,7 +98,7 @@ include_once 'php/conexao.php';
             <li><a href="./products/produtos.php">Produtos</a></li>
 
             <li>
-              <a href="./contato/contato.html"> Contato </a>
+              <a href="./contato/contato.php"> Contato </a>
             </li>
 
             <li>
